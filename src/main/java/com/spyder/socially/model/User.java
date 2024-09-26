@@ -1,32 +1,59 @@
 package com.spyder.socially.model;
 
+import java.util.UUID;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "Users")
 public class User {
-	
-	private String userId;
+
+	@Id
+	@GeneratedValue
+	@Column(nullable = false)
+	private UUID id;
+	@Column(name = "username")
+	private String userName;
+	@Column(name = "firstname")
 	private String firstName;
+	@Column(name = "lastname")
 	private String lastName;
+	@Column(name = "email")
 	private String email;
+	@Column(name = "password")
 	private String password;
-	
-	public User() {}
-	
-	public User(String userId, String firstName, 
-				String lastName, String email, 
-				String password) {
-		
-		this.setUserId(userId);
-		this.setFirstName(firstName);
-		this.setLastName(lastName);
-		this.setEmail(email);
-		this.setPassword(password);
+
+	public User() {
+		this.setId(UUID.randomUUID());
 	}
 
-	public String getUserId() {
-		return userId;
+	public User(String userName, String firstName, String lastName, String email, String password) {
+		super();
+		this.userName = userName;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.email = email;
+		this.password = password;
 	}
 
-	public void setUserId(String userId) {
-		this.userId = userId;
+	public UUID getId() {
+		return id;
+	}
+
+	public void setId(UUID id) {
+		this.id = id;
+	}
+
+	public String getUserName() {
+		return userName;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 
 	public String getFirstName() {
@@ -60,8 +87,5 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
-	
-	
-	
+
 }
