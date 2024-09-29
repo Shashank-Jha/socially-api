@@ -14,26 +14,26 @@ public class User {
 
 	@Id
 	@GeneratedValue
-	@Column(nullable = false)
+	@Column(unique = true, nullable = false)
 	private UUID id;
-	@Column(name = "username")
-	private String userName;
-	@Column(name = "firstname")
+	@Column(name = "username",unique = true, nullable = false)
+	private String username;
+	@Column(name = "firstname",nullable = false)
 	private String firstName;
-	@Column(name = "lastname")
+	@Column(name = "lastname",nullable = false)
 	private String lastName;
-	@Column(name = "email")
+	@Column(name = "email",unique = true, nullable = false)
 	private String email;
-	@Column(name = "password")
+	@Column(name = "password",nullable = false)
 	private String password;
 
 	public User() {
 		this.setId(UUID.randomUUID());
 	}
 
-	public User(String userName, String firstName, String lastName, String email, String password) {
+	public User(String username, String firstName, String lastName, String email, String password) {
 		super();
-		this.userName = userName;
+		this.username = username;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
@@ -48,12 +48,12 @@ public class User {
 		this.id = id;
 	}
 
-	public String getUserName() {
-		return userName;
+	public String getUsername() {
+		return username;
 	}
 
-	public void setUserName(String userName) {
-		this.userName = userName;
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
 	public String getFirstName() {

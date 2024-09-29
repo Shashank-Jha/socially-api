@@ -5,7 +5,7 @@ import java.util.UUID;
 public class UserDTO {
 
     private UUID id;
-    private String userName;
+    private String username;
     private String firstName;
     private String lastName;
     private String email;
@@ -13,9 +13,9 @@ public class UserDTO {
     public UserDTO() {
     }
 
-    public UserDTO(UUID id, String userName, String firstName, String lastName, String email) {
+    public UserDTO(UUID id, String username, String firstName, String lastName, String email) {
         this.id = id;
-        this.userName = userName;
+        this.username = username;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
@@ -29,12 +29,12 @@ public class UserDTO {
         this.id = id;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getFirstName() {
